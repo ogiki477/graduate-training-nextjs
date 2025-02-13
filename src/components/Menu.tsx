@@ -9,26 +9,26 @@ const menuItems = [
         icon: "/home.png",
         label: "Home",
         href: "/",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "supervisor", "student", "alumni"],
       },
       
       {
-        icon: "/teacher.png",
+        icon: "/supervisor.png",
         label: "Supervisors",
-        href: "/list/teachers",
-        visible: ["admin", "teacher"],
+        href: "/list/supervisors",
+        visible: ["admin", "supervisor"],
       },
       {
         icon: "/student.png",
         label: "Alumni",
         href: "/list/students",
-        visible: ["admin", "teacher"],
+        visible: ["admin", "supervisor"],
       },
       {
-        icon: "/parent.png",
+        icon: "/alumni.png",
         label: "Admin",
-        href: "/list/parents",
-        visible: ["admin", "teacher"],
+        href: "/list/alumnis",
+        visible: ["admin", "supervisor"],
       },
       {
         icon: "/subject.png",
@@ -40,55 +40,55 @@ const menuItems = [
         icon: "/class.png",
         label: "Classes",
         href: "/list/classes",
-        visible: ["admin", "teacher"],
+        visible: ["admin", "supervisor"],
       },
       {
         icon: "/lesson.png",
         label: "Lessons",
         href: "/list/lessons",
-        visible: ["admin", "teacher"],
+        visible: ["admin", "supervisor"],
       },
       {
         icon: "/exam.png",
         label: "Exams",
         href: "/list/exams",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "supervisor", "student", "alumni"],
       },
       {
         icon: "/assignment.png",
         label: "Assignments",
         href: "/list/assignments",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "supervisor", "student", "alumni"],
       },
       {
         icon: "/result.png",
         label: "Results",
         href: "/list/results",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "supervisor", "student", "alumni"],
       },
       {
         icon: "/attendance.png",
         label: "Attendance",
         href: "/list/attendance",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "supervisor", "student", "alumni"],
       },
       {
         icon: "/calendar.png",
         label: "Events",
         href: "/list/events",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "supervisor", "student", "alumni"],
       },
       {
         icon: "/message.png",
         label: "Messages",
         href: "/list/messages",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "supervisor", "student", "alumni"],
       },
       {
         icon: "/announcement.png",
         label: "Announcements",
         href: "/list/announcements",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "supervisor", "student", "alumni"],
       },
     ],
   },
@@ -99,19 +99,19 @@ const menuItems = [
         icon: "/profile.png",
         label: "Profile",
         href: "/profile",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "supervisor", "student", "alumni"],
       },
       {
         icon: "/setting.png",
         label: "Settings",
         href: "/settings",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "supervisor", "student", "alumni"],
       },
       {
         icon: "/logout.png",
         label: "Logout",
         href: "/logout",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "supervisor", "student", "alumni"],
       },
     ],
   },
@@ -132,7 +132,7 @@ const Menu = () => {
                 <Link
                   href={item.href}
                   key={item.label}
-                  className='flex items-center justify-center lg:justify-start gap-4 text-gray-500 py-2'
+                  className='flex items-center md:px-2 justify-center lg:justify-start gap-4 text-gray-500 py-2 rounded-md hover:bg-lamaSkyLight'
                 >
                   <Image src={item.icon} alt={item.label} width={20} height={20} />
                   <span className='hidden lg:block'>{item.label}</span>
