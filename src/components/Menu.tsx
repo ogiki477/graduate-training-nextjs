@@ -13,7 +13,7 @@ const menuItems = [
       },
       
       {
-        icon: "/supervisor.png",
+        icon: "/supervisor1.png",
         label: "Supervisors",
         href: "/list/supervisors",
         visible: ["admin", "supervisor"],
