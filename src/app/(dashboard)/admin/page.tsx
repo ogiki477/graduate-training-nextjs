@@ -33,7 +33,7 @@ const AdminPage = () => {
         </div>
 
         {/* BOTTOM CHARTS */}
-        <div className='h-full w-full h-[500px]'>
+        <div className='h-full w-full'>
           <PerformanceChart/>
         </div>
       </div>
