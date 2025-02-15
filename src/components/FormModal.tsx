@@ -1,9 +1,18 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
-import SupervisorForm from './forms/SupervisorForm';
-import StudentForm from './forms/StudentForm';
+import dynamic from 'next/dynamic';
+// import SupervisorForm from './forms/SupervisorForm';
+// import StudentForm from './forms/StudentForm';
 
+const SupervisorForm = dynamic(()=> import("./forms/SupervisorForm"),{
+    loading: () => <p>Loading...</p>
+});
+
+
+const StudentForm = dynamic(()=> import("./forms/StudentForm"),{
+    loading: () => <p>Loading...</p>
+});
 
 const forms: {
     [key: string]: (type: "create" | "update", data?: any) => JSX.Element;
