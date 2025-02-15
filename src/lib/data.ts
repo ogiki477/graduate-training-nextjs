@@ -247,6 +247,138 @@ export const studentsData = [
     university: "Makerere University,Uganda,Kampala",
   },
 ];
+export const alumnisData = [
+  {
+    id: 1,
+    studentId: "1234567890",
+    name: "John Doe",
+    email: "john@doe.com",
+    photo:
+      "https://images.pexels.com/photos/2888150/pexels-photo-2888150.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    phone: "1234567890",
+    level: "PhD",
+    year_completed: "2017",
+    class: "1B",
+    university: "Makerere University,Uganda,Kampala",
+  },
+  {
+    id: 2,
+    studentId: "1234567890",
+    name: "Jane Doe",
+    email: "jane@doe.com",
+    photo:
+      "https://images.pexels.com/photos/936126/pexels-photo-936126.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    phone: "1234567890",
+    level: "Masters",
+    year_completed: "2009",
+    class: "5A",
+    university: "Makerere University,Uganda,Kampala",
+  },
+  {
+    id: 3,
+    studentId: "1234567890",
+    name: "Mike Geller",
+    email: "mike@geller.com",
+    photo:
+      "https://images.pexels.com/photos/428328/pexels-photo-428328.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    phone: "1234567890",
+    level: "PhD",
+    year_completed: "2020",
+    class: "5A",
+    university: "Makerere University,Uganda,Kampala",
+  },
+  {
+    id: 4,
+    studentId: "1234567890",
+    name: "Jay French",
+    email: "jay@gmail.com",
+    photo:
+      "https://images.pexels.com/photos/1187765/pexels-photo-1187765.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    phone: "1234567890",
+    level: "Masters",
+    year_completed: "2015",
+    class: "5A",
+    university: "Makerere University,Uganda,Kampala",
+  },
+  {
+    id: 5,
+    studentId: "1234567890",
+    name: "Jane Smith",
+    email: "jane@gmail.com",
+    photo:
+      "https://images.pexels.com/photos/1102341/pexels-photo-1102341.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    phone: "1234567890",
+    level: "PGD",
+    year_completed: "2018",
+    class: "5A",
+    university: "Makerere University,Uganda,Kampala",
+  },
+  {
+    id: 6,
+    studentId: "1234567890",
+    name: "Anna Santiago",
+    email: "anna@gmail.com",
+    photo:
+      "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    phone: "1234567890",
+    level: "PhD",
+    year_completed: "2019",
+    class: "5A",
+    university: "Makerere University,Uganda,Kampala",
+  },
+  {
+    id: 7,
+    studentId: "1234567890",
+    name: "Allen Black",
+    email: "allen@black.com",
+    photo:
+      "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    phone: "1234567890",
+    level: "Masters",
+    year_completed: "2016",
+    class: "5A",
+    university: "Makerere University,Uganda,Kampala",
+  },
+  {
+    id: 8,
+    studentId: "1234567890",
+    name: "Ophelia Castro",
+    email: "ophelia@castro.com",
+    photo:
+      "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    phone: "1234567890",
+    level: "Masters",
+    year_completed: "2014",
+    class: "5A",
+    university: "Makerere University,Uganda,Kampala",
+  },
+  {
+    id: 9,
+    studentId: "1234567890",
+    name: "Derek Briggs",
+    email: "derek@briggs.com",
+    photo:
+      "https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    phone: "1234567890",
+    level: "Masters",
+    year_completed: "2013",
+    class: "5A",
+    university: "Makerere University,Uganda,Kampala",
+  },
+  {
+    id: 10,
+    studentId: "1234567890",
+    name: "John Glover",
+    email: "john@glover.com",
+    photo:
+      "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    phone: "1234567890",
+    level: "PGD",
+    year_completed: "2012",
+    class: "5A",
+    university: "Makerere University,Uganda,Kampala",
+  },
+];
 
 export const parentsData = [
   {

@@ -22,7 +22,7 @@ const forms: {
 }
 
 const FormModal = ({ table, type, data, id }: {
-    table: "supervisor" | "student" | "course" | "events";
+    table: "supervisor" | "student" | "course" | "events" | "alumni";
     type: "create" | "update" | "delete";
     data?: any;
     id?: number;
