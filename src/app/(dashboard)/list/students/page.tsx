@@ -83,7 +83,7 @@ const StudentsPageList = () => {
 
         <td className="px-4 py-2">
   <div className="flex items-center gap-2">
-    <Link href={`/list/supervisors/${item.id}`}>
+    <Link href={`/list/students/${item.id}`}>
       <button className="w-7 h-7 flex items-center justify-center rounded-full bg-lamaPurple hover:bg-yellow-400 transition duration-300">
         <Image src="/view1.png" alt="View" width={16} height={16} className='bg-white'/>
       </button>

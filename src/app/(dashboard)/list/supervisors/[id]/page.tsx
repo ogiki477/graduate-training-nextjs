@@ -5,6 +5,7 @@ import Announcements from '@/components/Announcements';
 import Link from 'next/link';
 import ProgressIndicatorChart from '@/components/ProgressIndicatorChart';
 
+
 const SinglePageSupervisor = () => {
   return (
     <div className='flex-1 p-4 flex flex-col gap-4 xl:flex-row'>
