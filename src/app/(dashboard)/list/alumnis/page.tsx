@@ -122,7 +122,7 @@ const AlumniPageList = () => {
                         // <Image src="/create.png" alt="" width={14} height={14} 
                         // />
                         // </button>
-                        <FormModal table="student" type="create" />
+                        <FormModal table="alumni" type="create" />
                       )}
                     </div>
                 </div>

@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+//import AlumniForm from './forms/AlumniForm';
 // import SupervisorForm from './forms/SupervisorForm';
 // import StudentForm from './forms/StudentForm';
 
@@ -14,11 +15,16 @@ const StudentForm = dynamic(()=> import("./forms/StudentForm"),{
     loading: () => <p>Loading...</p>
 });
 
+const AlumniForm = dynamic(()=> import("./forms/AlumniForm"),{
+    loading: () => <p>Loading...</p>
+});
+
 const forms: {
     [key: string]: (type: "create" | "update", data?: any) => JSX.Element;
 } = {
     supervisor: (type,data) => <SupervisorForm type={type} data={data} />,
-    student: (type,data) => <StudentForm type={type} data={data} />   
+    student: (type,data) => <StudentForm type={type} data={data} />,   
+    alumni: (type,data) => <AlumniForm type={type} data={data} />   
 }
 
 const FormModal = ({ table, type, data, id }: {
