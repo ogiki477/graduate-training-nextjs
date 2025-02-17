@@ -1,5 +1,4 @@
-"use client"; // Mark this component as a Client Component
-
+"use client";
 import React, { useEffect, useState } from 'react';
 import TableSearch from '@/components/TableSearch';
 import Image from 'next/image';
@@ -10,11 +9,9 @@ import { role } from '@/lib/data'; // Import role from the data file
 import FormModal from '@/components/FormModal';
 import { format } from 'date-fns';
 
-
 const formatDate = (date: string): string => {
   return format(new Date(date), 'd-MMM-yyyy');
 };
-
 
 type Course = {
   id: number;
@@ -32,39 +29,35 @@ const columns = [
   { header: "University ID", accessor: "university_id", className: "hidden md:table-cell" },
   { header: "Description", accessor: "description", className: "hidden lg:table-cell" },
   { header: "Registered Date", accessor: "created_at", className: "hidden lg:table-cell" },
-  // { header: "Updated At", accessor: "updated_at", className: "hidden lg:table-cell" },
   { header: "Actions", accessor: "action" },
 ];
 
-
-
 const CoursesPageList: React.FC = () => {
-  const [courses, setCourses] = useState<Course[]>([]); // Initialize as an empty array
+  const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:8000/api/courses');
-        if (!response.ok) {
-          throw new Error(`Error fetching data: ${response.status}`);
-        }
-  
-        const data = await response.json();
-        console.log('Fetched Courses:', data.data); // The courses are under 'data'
-        setCourses(data.data); // Set courses from 'data' field
-      } catch (error: any) {
-        console.error('Error fetching data:', error);
-        setError(error.message);
-      } finally {
-        setLoading(false);
+  const fetchCourses = async () => {
+    try {
+      const response = await fetch('http://localhost:8000/api/courses');
+      if (!response.ok) {
+        throw new Error(`Error fetching data: ${response.status}`);
       }
-    };
-  
-    fetchData();
+
+      const data = await response.json();
+      console.log('Fetched Courses:', data.data);
+      setCourses(data.data);
+    } catch (error: any) {
+      console.error('Error fetching data:', error);
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchCourses();
   }, []);
-  
 
   const renderRow = (item: Course) => (
     <tr key={item.id} className='border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurple'>
@@ -73,7 +66,6 @@ const CoursesPageList: React.FC = () => {
       <td className='hidden md:table-cell p-4'>{item.university_id}</td>
       <td className='hidden lg:table-cell p-4'>{item.description}</td>
       <td className='hidden lg:table-cell p-4'>{formatDate(item.created_at)}</td>
-      {/* <td className='hidden lg:table-cell p-4'>{item.updated_at}</td> */}
       <td className="px-4 py-2">
         <div className="flex items-center gap-2">
           <Link href={`/list/courses/${item.id}`}>
@@ -82,7 +74,7 @@ const CoursesPageList: React.FC = () => {
             </button>
           </Link>
           {role === "admin" && (
-            <FormModal table="course" type="delete" id={item.id} />
+            <FormModal table="course" type="delete" id={item.id}  onSuccess={() => {}} />
           )}
         </div>
       </td>
@@ -92,13 +84,11 @@ const CoursesPageList: React.FC = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-  
+
   if (error) {
     return <div>Error: {error}</div>;
   }
 
-
-  
   return (
     <div className='bg-white p-4 rounded-md flex-1 m-4 mt-0'>
       {/* TOP */}
@@ -113,7 +103,7 @@ const CoursesPageList: React.FC = () => {
             <button className='w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow'>
               <Image src="/sort.png" alt="" width={14} height={14} />
             </button>
-            {role === 'admin' && <FormModal table="course" type="create" />}
+            {role === 'admin' && <FormModal table="course" type="create" onSuccess={fetchCourses} />}
           </div>
         </div>
       </div>

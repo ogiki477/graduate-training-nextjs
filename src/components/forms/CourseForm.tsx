@@ -1,10 +1,9 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import InputField from '../InputField'; // Assuming you have InputField for reusability
-import Image from 'next/image';
 
 // Zod validation schema for Course form
 const schema = z.object({
@@ -16,21 +15,22 @@ const schema = z.object({
     .string()
     .min(3, { message: 'Course code must be at least 3 characters' })
     .max(20, { message: 'Course code must be at most 20 characters' }),
-  university_id: z
+  university_id: z.coerce
     .number()
     .min(1, { message: 'University ID is required' }),
   description: z
     .string()
     .min(10, { message: 'Description must be at least 10 characters' }),
-  img: z
-    .instanceof(FileList)
-    .optional()
-    .refine((files) => files?.length === 1, { message: 'Please upload one image file' }),
 });
 
 type Inputs = z.infer<typeof schema>;
 
-const CourseForm = ({ type, data }: { type: 'create' | 'update'; data?: any }) => {
+const CourseForm = ({ type, data, onClose, onSuccess }: { 
+  type: 'create' | 'update'; 
+  data?: any; 
+  onClose: () => void; 
+  onSuccess: () => void; 
+}) => {
   const {
     register,
     handleSubmit,
@@ -42,9 +42,38 @@ const CourseForm = ({ type, data }: { type: 'create' | 'update'; data?: any }) =
     },
   });
 
-  const onSubmit = handleSubmit((data) => {
-    console.log(data);
-    // You can make an API call here to create/update the course
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+
+  const onSubmit = handleSubmit(async (formData) => {
+    try {
+      // Make a POST request to the Laravel backend
+      const response = await fetch('http://localhost:8000/api/courses', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log('Course created successfully:', result);
+
+      // Show success message
+      setSuccessMessage('Course created successfully!');
+
+      // Close the form modal after 2 seconds
+      setTimeout(() => {
+        onClose(); // Close the modal
+        onSuccess(); // Refresh the course list
+      }, 500);
+    } catch (error) {
+      console.error('Error creating course:', error);
+      alert('Failed to create course. Please try again.');
+    }
   });
 
   return (
@@ -85,24 +114,17 @@ const CourseForm = ({ type, data }: { type: 'create' | 'update'; data?: any }) =
           error={errors.description}
           type="text"
         />
-        <div className='flex flex-col gap-2 w-full md:w-1/4'>
-          <label className='text-xs text-gray-500'>Course Image</label>
-          <label
-            className='text-xs text-gray-500 flex items-center gap-2 cursor-pointer'
-            htmlFor='img'
-          >
-            <Image src='/upload.png' alt='' width={28} height={28} />
-            <span>Upload a course image</span>
-          </label>
-          <input type='file' id='img' {...register('img')} className='hidden' />
-          {errors.img?.message && (
-            <p className='text-xs text-red-400'>{errors.img.message.toString()}</p>
-          )}
-        </div>
       </div>
       <button className='bg-blue-400 text-white p-2 rounded-md'>
         {type === 'create' ? 'Create' : 'Update'}
       </button>
+
+      {/* Success Message */}
+      {successMessage && (
+        <div className='fixed top-4 right-4 bg-green-500 text-white p-4 rounded-md'>
+          {successMessage}
+        </div>
+      )}
     </form>
   );
 };
