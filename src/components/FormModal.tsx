@@ -10,6 +10,10 @@ const SupervisorForm = dynamic(()=> import("./forms/SupervisorForm"),{
     loading: () => <p>Loading...</p>
 });
 
+const CourseForm = dynamic(()=> import("./forms/CourseForm"),{
+    loading: () => <p>Loading...</p>
+});
+
 
 const StudentForm = dynamic(()=> import("./forms/StudentForm"),{
     loading: () => <p>Loading...</p>
@@ -24,7 +28,8 @@ const forms: {
 } = {
     supervisor: (type,data) => <SupervisorForm type={type} data={data} />,
     student: (type,data) => <StudentForm type={type} data={data} />,   
-    alumni: (type,data) => <AlumniForm type={type} data={data} />   
+    alumni: (type,data) => <AlumniForm type={type} data={data} /> ,  
+    course: (type,data) => <CourseForm type={type} data={data} />   
 }
 
 const FormModal = ({ table, type, data, id }: {

@@ -30,12 +30,12 @@ const menuItems = [
         href: "/list/alumnis",
         visible: ["admin", "supervisor"],
       },
-      // {
-      //   icon: "/subject.png",
-      //   label: "Subjects",
-      //   href: "/list/subjects",
-      //   visible: ["admin"],
-      // },
+      {
+        icon: "/courses.png",
+        label: "Courses",
+        href: "/list/courses",
+        visible: ["admin"],
+      },
       // {
       //   icon: "/class.png",
       //   label: "Classes",
