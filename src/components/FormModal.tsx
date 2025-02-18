@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import TrainingForm from './forms/TrainingForm';
 
 const SupervisorForm = dynamic(() => import("./forms/SupervisorForm"), {
   loading: () => <p>Loading...</p>,
@@ -26,10 +27,11 @@ const forms: {
   student: (type, data) => <StudentForm type={type} data={data} />,
   alumni: (type, data) => <AlumniForm type={type} data={data} />,
   course: (type, data, onClose, onSuccess) => <CourseForm type={type} data={data} onClose={onClose!} onSuccess={onSuccess!} />,
+  training_schedules: (type, data, onClose, onSuccess) => <TrainingForm type={type} data={data} onClose={onClose!} onSuccess={onSuccess!} />,
 };
 
 const FormModal = ({ table, type, data, id, onSuccess }: {
-  table: "supervisor" | "student" | "course" | "events" | "alumni";
+  table: "supervisor" | "student" | "course" | "events" | "alumni" | "training_schedules";
   type: "create" | "update" | "delete";
   data?: any;
   id?: number;

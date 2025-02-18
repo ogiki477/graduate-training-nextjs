@@ -36,12 +36,12 @@ const menuItems = [
         href: "/list/courses",
         visible: ["admin"],
       },
-      // {
-      //   icon: "/class.png",
-      //   label: "Classes",
-      //   href: "/list/classes",
-      //   visible: ["admin", "supervisor"],
-      // },
+      {
+        icon: "/training.png",
+        label: "Scheduled Trainings",
+        href: "/list/trainings",
+        visible: ["admin", "supervisor"],
+      },
       // {
       //   icon: "/lesson.png",
       //   label: "Lessons",
@@ -110,7 +110,7 @@ const menuItems = [
       {
         icon: "/logout.png",
         label: "Logout",
-        href: "/logout",
+        href: "/",
         visible: ["admin", "supervisor", "student", "alumni"],
       },
     ],
